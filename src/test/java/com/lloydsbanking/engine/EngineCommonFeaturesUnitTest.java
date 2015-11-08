@@ -1,10 +1,10 @@
 package com.lloydsbanking.engine;
 
 import com.lloydsbanking.fuel.FuelType;
-import org.junit.Assert;
 import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.Assert.fail;
 
 public class EngineCommonFeaturesUnitTest {
 
@@ -12,6 +12,9 @@ public class EngineCommonFeaturesUnitTest {
 
     @Test
     public void itShouldCreateAPetrolCombustionEngineWithValidValues() {
+
+        //when
+        sut = createEngine(FuelType.PETROL);
 
         //then
         assertThat(sut.getFuelType()).isEqualTo(FuelType.PETROL);
@@ -95,7 +98,7 @@ public class EngineCommonFeaturesUnitTest {
         //when
         petrolEngine.start();
 
-        Assert.fail("it shouldn't reach here");
+        fail("it shouldn't reach here");
     }
 
     @Test
@@ -136,7 +139,7 @@ public class EngineCommonFeaturesUnitTest {
         //when
         petrolEngine.stop();
 
-        Assert.fail("it shouldn't reach here");
+        fail("it shouldn't reach here");
 
     }
 
