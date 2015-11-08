@@ -11,6 +11,7 @@ import static java.lang.String.format;
 
 public class SteamEngine implements Engine {
 
+    //we could have done via via param
     private static final int STEAM_ENGINE_BATCH_SIZE = 2;
 
     private final Engine delegateEngine;
