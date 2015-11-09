@@ -1,26 +1,35 @@
 /**********************************************************************
  * This source code is the property of Lloyds Banking Group PLC.
- *
+ * <p>
  * All Rights Reserved.
  ***********************************************************************/
 package com.lloydsbanking.engine;
 
 import com.lloydsbanking.fuel.FuelType;
 
+/**
+ * The type Engine common features.
+ */
 public class EngineCommonFeatures implements Engine {
-
-    private boolean running;
-    private int fuelLevel;
 
     private final FuelType fuelType;
     private final int batchSize;
+    private boolean running;
+    private int fuelLevel;
 
+    /**
+     * Instantiates a new Engine common features.
+     *
+     * @param fuelType  the fuel type
+     * @param batchSize the batch size
+     */
     public EngineCommonFeatures(final FuelType fuelType, int batchSize) {
 
         this.fuelType = fuelType;
         this.batchSize = batchSize;
     }
 
+    @Override
     public void start() {
 
         if (!isEmpty()) {
@@ -30,6 +39,7 @@ public class EngineCommonFeatures implements Engine {
         }
     }
 
+    @Override
     public void stop() {
 
         if (isRunning()) {

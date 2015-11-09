@@ -1,14 +1,17 @@
 /**********************************************************************
-* This source code is the property of Lloyds Banking Group PLC.
-*
-* All Rights Reserved.
-***********************************************************************/
+ * This source code is the property of Lloyds Banking Group PLC.
+ * <p>
+ * All Rights Reserved.
+ ***********************************************************************/
 package com.lloydsbanking.engine;
 
 import com.lloydsbanking.fuel.FuelType;
 
 import static java.lang.String.format;
 
+/**
+ * The type Steam engine.
+ */
 public class SteamEngine implements Engine {
 
     //we could have done via via param
@@ -16,6 +19,11 @@ public class SteamEngine implements Engine {
 
     private final Engine delegateEngine;
 
+    /**
+     * Instantiates a new Steam engine.
+     *
+     * @param fuelType the fuel type
+     */
     public SteamEngine(final FuelType fuelType) {
 
         if (!fuelType.equals(FuelType.WOOD) && !fuelType.equals(FuelType.COAL))

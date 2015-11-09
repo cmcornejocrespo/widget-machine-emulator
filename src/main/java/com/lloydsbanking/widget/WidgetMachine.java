@@ -1,16 +1,24 @@
 /**********************************************************************
  * This source code is the property of Lloyds Banking Group PLC.
- *
+ * <p>
  * All Rights Reserved.
  ***********************************************************************/
 package com.lloydsbanking.widget;
 
 import com.lloydsbanking.engine.Engine;
 
+/**
+ * The type Widget machine.
+ */
 public class WidgetMachine implements Widget {
 
     private final Engine engine;
 
+    /**
+     * Instantiates a new Widget machine.
+     *
+     * @param engine the engine
+     */
     public WidgetMachine(final Engine engine) {
         this.engine = engine;
     }

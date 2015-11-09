@@ -14,11 +14,10 @@ public class WidgetMachineUnitTest {
     private Widget sut;
 
     @Test
-    public void itShouldReturnTheExpectedValueWhenUsingUsingInternalCombustionEngineAndPetrolFuel(){
+    public void itShouldReturnTheExpectedValueWhenUsingUsingInternalCombustionEngineAndPetrolFuel() {
 
         //test fixtures
-        Engine engine = new InternalCombustionEngine(FuelType.PETROL);
-        engine.fill(50);
+        Engine engine = createCombustionEngineAndFill(FuelType.PETROL, 50);
 
         //given
         sut = new WidgetMachine(engine);
@@ -31,11 +30,10 @@ public class WidgetMachineUnitTest {
     }
 
     @Test
-    public void itShouldReturnTheExpectedValueWhenUsingInternalCombustionEngineAndDieselFuel(){
+    public void itShouldReturnTheExpectedValueWhenUsingInternalCombustionEngineAndDieselFuel() {
 
         //test fixtures
-        Engine engine = new InternalCombustionEngine(FuelType.DIESEL);
-        engine.fill(100);
+        Engine engine = createCombustionEngineAndFill(FuelType.DIESEL, 100);
 
         //given
         sut = new WidgetMachine(engine);
@@ -48,11 +46,10 @@ public class WidgetMachineUnitTest {
     }
 
     @Test
-    public void itShouldReturnTheExpectedValueWhenUsingSteamEngineAndWoodFuel(){
+    public void itShouldReturnTheExpectedValueWhenUsingSteamEngineAndWoodFuel() {
 
         //test fixtures
-        Engine engine = new SteamEngine(FuelType.WOOD);
-        engine.fill(25);
+        Engine engine = createSteamEngineAndFill(FuelType.WOOD, 25);
 
         //given
         sut = new WidgetMachine(engine);
@@ -65,11 +62,10 @@ public class WidgetMachineUnitTest {
     }
 
     @Test
-    public void itShouldReturnTheExpectedValueWhenUsingSteamEngineAndCoalFuel(){
+    public void itShouldReturnTheExpectedValueWhenUsingSteamEngineAndCoalFuel() {
 
         //test fixtures
-        Engine engine = new SteamEngine(FuelType.COAL);
-        engine.fill(75);
+        Engine engine = createSteamEngineAndFill(FuelType.COAL, 75);
 
         //given
         sut = new WidgetMachine(engine);
@@ -79,5 +75,22 @@ public class WidgetMachineUnitTest {
 
         //then
         assertThat(totalCost).isEqualTo(226.0);
+    }
+
+    //private test helpers
+    private Engine createCombustionEngineAndFill(final FuelType petrol, final int fuelLevel) {
+
+        Engine engine = new InternalCombustionEngine(petrol);
+
+        engine.fill(fuelLevel);
+        return engine;
+    }
+
+    private Engine createSteamEngineAndFill(final FuelType petrol, final int fuelLevel) {
+
+        Engine engine = new SteamEngine(petrol);
+
+        engine.fill(fuelLevel);
+        return engine;
     }
 }

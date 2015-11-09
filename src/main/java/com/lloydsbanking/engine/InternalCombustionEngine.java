@@ -1,6 +1,6 @@
 /**********************************************************************
  * This source code is the property of Lloyds Banking Group PLC.
- *
+ * <p>
  * All Rights Reserved.
  ***********************************************************************/
 package com.lloydsbanking.engine;
@@ -9,6 +9,9 @@ import com.lloydsbanking.fuel.FuelType;
 
 import static java.lang.String.format;
 
+/**
+ * The type Internal combustion engine.
+ */
 public class InternalCombustionEngine implements Engine {
 
     //we could have done via via param
@@ -16,6 +19,11 @@ public class InternalCombustionEngine implements Engine {
 
     private final Engine delegateEngine;
 
+    /**
+     * Instantiates a new Internal combustion engine.
+     *
+     * @param fuelType the fuel type
+     */
     public InternalCombustionEngine(final FuelType fuelType) {
 
         if (!fuelType.equals(FuelType.DIESEL) && !fuelType.equals(FuelType.PETROL))
